@@ -15,9 +15,9 @@ library(rmapshaper)
 library(rsconnect)
 
 
-vysledky_komplet <- read_xlsx("data/Vysledky_posl_snemovna.xlsx")
-vysledky_komplet_k <- read_xlsx("data/Vysledky_posl_snemovna_kandidati.xlsx")
-vysledky_komplet_obce <- read_xlsx("data/Vysledky_obce.xlsx")
+vysledky_komplet <- read_xlsx("Vysledky_posl_snemovna.xlsx")
+vysledky_komplet_k <- read_xlsx("Vysledky_posl_snemovna_kandidati.xlsx")
+vysledky_komplet_obce <- read_xlsx("Vysledky_obce.xlsx")
 
 obce <- ms_simplify(RCzechia::obce_polygony(), keep = 0.05)
 
