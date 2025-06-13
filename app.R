@@ -148,7 +148,7 @@ ui <- dashboardPage(
         font-size: 24px;
         font-weight: bold;
         color: #333;
-        margin-top: 3px;
+        margin-top: 2px;
       }
       body {
           font-family: Arial, sans-serif;
@@ -179,19 +179,19 @@ ui <- dashboardPage(
                 titlePanel("Podpora jednotlivých stran ve volbách do Poslanecké sněmovny"),
                 selectInput("rok_strany", "Vyberte rok:", choices = unique(na.omit(strany_data$ROK))),
                 selectInput("strana_strany", "Vyberte stranu:", choices = NULL),
-                withSpinner(leafletOutput("strany", height = "74vh"), type = 6)
+                withSpinner(leafletOutput("strany", height = "76vh"), type = 6)
         ),
         tabItem(tabName = "mapy_strany",
                 titlePanel("LISA Analýza podpory jednotlivých stran ve volbách do Poslanecké sněmovny"),
                 selectInput("rok", "Vyberte rok:", choices = unique(na.omit(geo_data$ROK))),
                 selectInput("strana", "Vyberte stranu:", choices = NULL),
-                withSpinner(leafletOutput("mapa_strany", height = "74vh"), type = 6)
+                withSpinner(leafletOutput("mapa_strany", height = "76vh"), type = 6)
         ),
         tabItem(tabName = "map_turnout_diff",
                 titlePanel("Rozdíly volební účasti ve volbách do Poslanecké sněmovny"),
                 selectInput("year1", "Vybraný rok 1:", choices = colnames(vysledky_komplet_wide)[-1], selected = (colnames(vysledky_komplet_wide)[-1])[1]),
                 selectInput("year2", "Vybraný rok 2:", choices = colnames(vysledky_komplet_wide)[-1], selected = (colnames(vysledky_komplet_wide)[-1])[-1]),
-                withSpinner(leafletOutput("map_turnout_diff", height = "74vh"), type = 6)
+                withSpinner(leafletOutput("map_turnout_diff", height = "76vh"), type = 6)
         ),
         tabItem(tabName = "map_turnout_diff_reg",
                 titlePanel("Změny volební účasti ve volbách do Poslanecké sněmovny pomocí regrese"),
@@ -216,7 +216,7 @@ ui <- dashboardPage(
                 titlePanel("Rozdíly volební účasti do zastupitelstev obcí"),
                 selectInput("year1_obce", "Vybraný rok 1:", choices = unique(vysledky_komplet_obce$ROK), selected = "2002"),
                 selectInput("year2_obce", "Vybraný rok 2:", choices = unique(vysledky_komplet_obce$ROK), selected = "2022"),
-                withSpinner(leafletOutput("map_turnout_diff_obce", height = "74vh"), type = 6)
+                withSpinner(leafletOutput("map_turnout_diff_obce", height = "76vh"), type = 6)
         ),
         tabItem(tabName = "map_turnout_diff_reg_obce",
                 titlePanel("Změny volební účasti ve volbách do zastupitelstev obcí pomocí regrese"),
