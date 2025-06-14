@@ -183,8 +183,9 @@ ui <- dashboardPage(
         ),
         tabItem(tabName = "mapy_strany",
                 titlePanel("LISA Analýza podpory jednotlivých stran ve volbách do Poslanecké sněmovny"),
+                div(style = "display: flex; justify-content: flex-start; gap: 10px;",
                 selectInput("rok", "Vyberte rok:", choices = unique(na.omit(geo_data$ROK))),
-                selectInput("strana", "Vyberte stranu:", choices = NULL),
+                selectInput("strana", "Vyberte stranu:", choices = NULL)),
                 withSpinner(leafletOutput("mapa_strany", height = "85vh"), type = 6)
         ),
         tabItem(tabName = "map_turnout_diff",
