@@ -163,65 +163,68 @@ ui <- dashboardPage(
         tabItem(tabName = "mapy",
                 titlePanel("Volební účast ve volbách do Poslanecké sněmovny"),
                 selectInput("year", "Rok:", choices = unique(vysledky_komplet$ROK), selected = unique(vysledky_komplet$ROK)[1]),
-                withSpinner(leafletOutput("map_actual", height = "85vh"), type = 6)
+                withSpinner(leafletOutput("map_actual", height = "83vh"), type = 6)
         ),
         tabItem(tabName = "lisa",
                 titlePanel("LISA Analýza"),
                 selectInput("year_lisa", "Rok:", choices = unique(vysledky_komplet$ROK), selected = unique(vysledky_komplet$ROK)[1]),
-                withSpinner(leafletOutput("map_lisa", height = "85vh"), type = 6)
+                withSpinner(leafletOutput("map_lisa", height = "83vh"), type = 6)
         ),
         tabItem(tabName = "lisa_visibilita",
                 titlePanel("LISA Analýza a volební účast"),
                 selectInput("year_lisa_visibilita", "Rok:", choices = unique(vysledky_komplet$ROK), selected = unique(vysledky_komplet$ROK)[1]),
-                withSpinner(leafletOutput("map_lisa_visibilita", height = "85vh"), type = 6)
+                withSpinner(leafletOutput("map_lisa_visibilita", height = "83vh"), type = 6)
         ),
         tabItem(tabName = "strany",
                 titlePanel("Podpora jednotlivých stran ve volbách do Poslanecké sněmovny"),
+                div(style = "display: flex; justify-content: flex-start; gap: 15px;",
                 selectInput("rok_strany", "Vyberte rok:", choices = unique(na.omit(strany_data$ROK))),
-                selectInput("strana_strany", "Vyberte stranu:", choices = NULL),
-                withSpinner(leafletOutput("strany", height = "85vh"), type = 6)
+                selectInput("strana_strany", "Vyberte stranu:", choices = NULL)),
+                withSpinner(leafletOutput("strany", height = "83vh"), type = 6)
         ),
         tabItem(tabName = "mapy_strany",
                 titlePanel("LISA Analýza podpory jednotlivých stran ve volbách do Poslanecké sněmovny"),
-                div(style = "display: flex; justify-content: flex-start; gap: 10px;",
+                div(style = "display: flex; justify-content: flex-start; gap: 15px;",
                 selectInput("rok", "Vyberte rok:", choices = unique(na.omit(geo_data$ROK))),
                 selectInput("strana", "Vyberte stranu:", choices = NULL)),
-                withSpinner(leafletOutput("mapa_strany", height = "85vh"), type = 6)
+                withSpinner(leafletOutput("mapa_strany", height = "83vh"), type = 6)
         ),
         tabItem(tabName = "map_turnout_diff",
                 titlePanel("Rozdíly volební účasti ve volbách do Poslanecké sněmovny"),
+                div(style = "display: flex; justify-content: flex-start; gap: 15px;",
                 selectInput("year1", "Vybraný rok 1:", choices = colnames(vysledky_komplet_wide)[-1], selected = (colnames(vysledky_komplet_wide)[-1])[1]),
-                selectInput("year2", "Vybraný rok 2:", choices = colnames(vysledky_komplet_wide)[-1], selected = (colnames(vysledky_komplet_wide)[-1])[-1]),
-                withSpinner(leafletOutput("map_turnout_diff", height = "85vh"), type = 6)
+                selectInput("year2", "Vybraný rok 2:", choices = colnames(vysledky_komplet_wide)[-1], selected = (colnames(vysledky_komplet_wide)[-1])[-1])),
+                withSpinner(leafletOutput("map_turnout_diff", height = "83vh"), type = 6)
         ),
         tabItem(tabName = "map_turnout_diff_reg",
                 titlePanel("Změny volební účasti ve volbách do Poslanecké sněmovny pomocí regrese"),
-                withSpinner(leafletOutput("map_turnout_diff_reg", height = "85vh"), type = 6)
+                withSpinner(leafletOutput("map_turnout_diff_reg", height = "83vh"), type = 6)
         ),
         tabItem(tabName = "mapy_obce",
                 titlePanel("Volební účast ve volbách do zastupitelstev obcí"),
                 selectInput("year_obce", "Rok:", choices = unique(vysledky_komplet_obce$ROK), selected = unique(vysledky_komplet_obce$ROK)[1]),
-                withSpinner(leafletOutput("map_actual_obce", height = "85vh"), type = 6)
+                withSpinner(leafletOutput("map_actual_obce", height = "83vh"), type = 6)
         ),
         tabItem(tabName = "lisa_obce",
                 titlePanel("LISA Analýza volební účasti ve volbách do zastupitestev obcí"),
                 selectInput("year_lisa_obce", "Rok:", choices = unique(vysledky_komplet_obce$ROK), selected = unique(vysledky_komplet_obce$ROK)[1]),
-                withSpinner(leafletOutput("map_lisa_obce", height = "85vh"), type = 6)
+                withSpinner(leafletOutput("map_lisa_obce", height = "83vh"), type = 6)
         ),
         tabItem(tabName = "lisa_obce_visibilita",
                 titlePanel("LISA Analýza volební účasti ve volbách do zastupitestev obcí"),
                 selectInput("year_lisa_obce_visibilita", "Rok:", choices = unique(vysledky_komplet_obce$ROK), selected = unique(vysledky_komplet_obce$ROK)[1]),
-                withSpinner(leafletOutput("map_lisa_obce_visibilita", height = "85vh"), type = 6)
+                withSpinner(leafletOutput("map_lisa_obce_visibilita", height = "83vh"), type = 6)
         ),
         tabItem(tabName = "map_turnout_diff_obce",
                 titlePanel("Rozdíly volební účasti do zastupitelstev obcí"),
+                div(style = "display: flex; justify-content: flex-start; gap: 15px;",
                 selectInput("year1_obce", "Vybraný rok 1:", choices = unique(vysledky_komplet_obce$ROK), selected = "2002"),
-                selectInput("year2_obce", "Vybraný rok 2:", choices = unique(vysledky_komplet_obce$ROK), selected = "2022"),
-                withSpinner(leafletOutput("map_turnout_diff_obce", height = "85vh"), type = 6)
+                selectInput("year2_obce", "Vybraný rok 2:", choices = unique(vysledky_komplet_obce$ROK), selected = "2022")),
+                withSpinner(leafletOutput("map_turnout_diff_obce", height = "83vh"), type = 6)
         ),
         tabItem(tabName = "map_turnout_diff_reg_obce",
                 titlePanel("Změny volební účasti ve volbách do zastupitelstev obcí pomocí regrese"),
-                withSpinner(leafletOutput("map_turnout_diff_reg_obce", height = "85vh"), type = 6)
+                withSpinner(leafletOutput("map_turnout_diff_reg_obce", height = "83vh"), type = 6)
         )
       )
     )
